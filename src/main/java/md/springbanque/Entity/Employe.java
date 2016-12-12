@@ -1,5 +1,8 @@
 package md.springbanque.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonSetter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
@@ -23,11 +26,11 @@ public class Employe implements Serializable {
     public Employe(String nomEmploye) {
         this.nomEmploye = nomEmploye;
     }
-
+    @JsonIgnore
     public Employe getEmployeSup() {
         return employeSup;
     }
-
+    @JsonSetter
     public void setEmployeSup(Employe employeSup) {
         this.employeSup = employeSup;
     }
@@ -52,11 +55,11 @@ public class Employe implements Serializable {
         this.nomEmploye = nomEmploye;
     }
 
-
+    @JsonIgnore
     public Collection<Groupe> getGroupes() {
         return groupes;
     }
-
+    @JsonSetter
     public void setGroupes(Collection<Groupe> groupes) {
         this.groupes = groupes;
     }
